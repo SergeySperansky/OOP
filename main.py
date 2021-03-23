@@ -7,8 +7,11 @@ class Student:
         self.courses_in_progress = []
         self.grades = {}
 
-    def add_courses(self, course_name):
-        self.finished_courses.append(course_name)
+    def srednee(self):
+        sum1 = 0
+        for student in Student:
+            sum1 += student['grades']
+            return sum1 / len(student)
 
 
 class Mentor:
@@ -19,45 +22,19 @@ class Mentor:
 
 
 class Lecturer(Mentor):
-    def __init__(self, name, surname, course):
-        self.name = name
-        self.surname = surname
-        self.courses = []
-        self.grades = {}
-
-    def rate_lector(self, lecturer, course, grade):
-        if isinstance(lecturer, Lecturer) and course in self.courses_attached and course in student.courses_in_progress:
-            if course in lecturer.grades:
-                lecturer.grades[course] += [grade]
-            else:
-                lecturer.grades[course] = [grade]
-        else:
-            return 'Ошибка'
+    def avg_geade(self, grades):
+        sum_ex = 0
+        for Student in grades:
+            sum_ex += grades[grades]
+            return sum_ex / len(grades)
 
 
 class Reviewer(Mentor):
-    def rate_hw(self, student, course, grade):
-        if isinstance(student, Student) and course in self.courses_attached and course in student.courses_in_progress:
-            if course in student.grades:
-                student.grades[course] += [grade]
-            else:
-                student.grades[course] = [grade]
-        else:
-            return 'Ошибка'
+    pass
 
 
-best_student = Student('Ruoy', 'Eman', 'your_gender')
-best_student.courses_in_progress += ['Python']
-
-cool_reviewer = Reviewer('Some', 'Buddy')
-cool_reviewer.courses_attached += ['Python']
-
-cool_reviewer.rate_hw(best_student, 'Python', 10)
-cool_reviewer.rate_hw(best_student, 'Python', 10)
-cool_reviewer.rate_hw(best_student, 'Python', 10)
-
-best_lecturer = Lecturer('Roman', 'Romanovich', 'Python for 5 days')
-
-best_lecturer.grades = (10, 9, 5, 10)
-
-print(best_lecturer.grades)
+student1 = Student('One', 'DDD', 'man')
+student1.courses_in_progress = 'Python'
+student1.grades = 9, 10, 8
+print(student1.__dict__)
+print(student1.srednee)
