@@ -47,3 +47,6 @@ print(student1.srednee())
 cool_mentor = Mentor('Some', 'Buddy')
 cool_mentor.courses_attached += ['Python']
 print(cool_mentor.courses_attached)
+rate1 = Reviewer('Ivan', 'Ivanich')
+rate1.rate_hw(student1, 'Python', 8)
+print(rate1.rate_hw())
