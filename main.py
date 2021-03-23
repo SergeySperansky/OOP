@@ -1,4 +1,5 @@
 class Student:
+    # метод для выставления оценок лекторам
     def __init__(self, name, surname, gender):
         self.name = name
         self.surname = surname
@@ -42,11 +43,7 @@ student1 = Student('Сергей', 'Сперанский', 'муж')
 student1.courses_in_progress = 'Python'
 student1.finished_courses = 'GIT'
 student1.grades = [9, 10, 8]
+rate1 = Reviewer('Ivan', 'Ivanich')
+rate1.rate_hw(student1, 'Python', 6)
 print(student1.__dict__)
 print(student1.srednee())
-cool_mentor = Mentor('Some', 'Buddy')
-cool_mentor.courses_attached += ['Python']
-print(cool_mentor.courses_attached)
-rate1 = Reviewer('Ivan', 'Ivanich')
-rate1.rate_hw(student1, 'Python', 8)
-print(rate1.rate_hw())
