@@ -8,10 +8,10 @@ class Student:
         self.grades = {}
 
     def srednee(self):
-        sum1 = 0
-        for student in Student:
-            sum1 += student['grades']
-            return sum1 / len(student)
+        sum_res = 0
+        for grade in self.grades:
+            sum_res += grade
+        return sum_res / len(self.grades)
 
 
 class Mentor:
@@ -22,19 +22,28 @@ class Mentor:
 
 
 class Lecturer(Mentor):
-    def avg_geade(self, grades):
-        sum_ex = 0
-        for Student in grades:
-            sum_ex += grades[grades]
-            return sum_ex / len(grades)
+    def __init__(self):
+        self.grades = {}
 
 
 class Reviewer(Mentor):
-    pass
+    #метод выставления оценок студентам за ДЗ
+    def rate_hw(self, student, course, grade):
+        if isinstance(student, Student) and course in self.courses_attached and course in student.courses_in_progress:
+            if course in student.grades:
+                student.grades[course] += [grade]
+            else:
+                student.grades[course] = [grade]
+        else:
+            return 'Ошибка'
 
 
-student1 = Student('One', 'DDD', 'man')
+student1 = Student('Сергей', 'Сперанский', 'муж')
 student1.courses_in_progress = 'Python'
-student1.grades = 9, 10, 8
+student1.finished_courses = 'GIT'
+student1.grades = [9, 10, 8]
 print(student1.__dict__)
-print(student1.srednee)
+print(student1.srednee())
+cool_mentor = Mentor('Some', 'Buddy')
+cool_mentor.courses_attached += ['Python']
+print(cool_mentor.courses_attached)
